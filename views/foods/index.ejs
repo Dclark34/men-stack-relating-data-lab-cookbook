@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pantry</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.js') %>
+    <h1>Welcome to My Pantry!</h1>
+    <a href="/users/<%=user._id%>/foods/new">Add a New Food!</a>
+    <h2>Current Pantry: </h2>
+    <ul>
+    <% pantry.forEach((food) => { %> <!--REVISIT Need ot Add conditional that says something else if no pantry items.-->
+        <li>
+                <%= food.name %>
+            <a href="/users/<%= user._id%>/foods/<%=food._id%>/edit">Edit Food Item</button>
+            <form action="/users/<%= user._id %>/foods/<%= food._id%>?_method=DELETE" method="POST">
+            <button type = "submit">Delete Food Item</button>
+             </form>
+        </li>
+        <% }); %>
+    </ul>
+</body>
+</html>

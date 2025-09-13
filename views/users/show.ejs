@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>showpage</title>
+</head>
+<body>
+    <%- include('../partials/_navbar.js') %>
+    <h1>Their Pantry!</h1>
+    <h2>Current Pantry: </h2>
+    <ul>
+    <% pantry.forEach((food) => { %> <!--REVISIT Need ot Add conditional that says something else if no pantry items.-->
+        <li>
+                <%= food.name %>
+        </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
