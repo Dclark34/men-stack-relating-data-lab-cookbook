@@ -11,15 +11,19 @@
     <a href="/users/<%=user._id%>/foods/new">Add a New Food!</a>
     <h2>Current Pantry: </h2>
     <ul>
-    <% pantry.forEach((food) => { %> <!--REVISIT Need ot Add conditional that says something else if no pantry items.-->
+        <% if (pantry.length === 0) { %>
+            <p>There are currently no items in your pantry!</p>
+    <% } else {pantry.forEach((food) => { %> 
         <li>
-                <%= food.name %>
-            <a href="/users/<%= user._id%>/foods/<%=food._id%>/edit">Edit Food Item</button>
+              <p> <%= food.name %> </p>
+              <p>
+            <a href="/users/<%= user._id%>/foods/<%=food._id%>/edit">Edit Food Item</a>
+                </p>
             <form action="/users/<%= user._id %>/foods/<%= food._id%>?_method=DELETE" method="POST">
             <button type = "submit">Delete Food Item</button>
              </form>
         </li>
-        <% }); %>
+        <% });} %>
     </ul>
 </body>
 </html>

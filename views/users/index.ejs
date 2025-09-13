@@ -9,7 +9,7 @@
     <%- include('../partials/_navbar.js') %>
     <h1>Check out the Community!</h1>
     <ul>
-    <% users.forEach((user) => { %> <!--REVISIT Need ot Add conditional that says something else if no pantry items.-->
+    <% users.forEach((user) => { %> 
         <li>
             <a href="/community/<%= user._id %>"><%= user.username %></a>
         </li>
